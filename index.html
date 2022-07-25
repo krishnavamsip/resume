@@ -356,12 +356,40 @@
     </section>
 
 </div>
- 
-    
+  <div>
+    <textarea rows="5" cols="10" placeholder="voice message" id="a">
+       </textarea>
+        <button onclick="voice()">click to speak</button>
+        <script>
+            function voice()
+            {
+                var recognition=new webkitSpeechRecognition();
+                recognition.lang="en-GB";
+                recognition.onresult=function(event){
+                    console.log(event);
+                    document.getElementById("a").value=event.results[0][0].transcript;   
+                    a();
+                }
+                recognition.start();
+                
+            }
+            function a()
+            {
+            var k=document.getElementById("a").value;
+            var regex=/home/
+            if(regex.test(k))
+            {
+               
+                window.location.href="C:\\Users\\Asus\\Desktop\\start.html";
+            }
+            else
+            {
+                alert("try to speak different way");
 
-    
-    <script src="script/script.js"></script>
-
+            }
+            }
+        </script>
+  </div>
 </body>
 
 </html>
